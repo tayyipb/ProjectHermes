@@ -1,0 +1,18 @@
+html
+  head
+    meta(charset="UTF-8")
+    title Creating an equipment
+    link(rel="stylesheet", href="css/core.css")
+    include includes/header
+  body.page-background
+    form(action="/addsnowmobile", method="post")
+      div.background-pic(style ="height: 24vw;")
+        div.title-whitebox
+          p.title-text Equipment info
+        p.text-label(style="margin-top: 2vw;") Engine:
+          input.textinput(name="engine")
+        p.text-label Price:
+          input.textinput(name="price")
+        p.text-label Seats:
+          input.textinput(name="seats")
+        button.default Add

@@ -1,0 +1,58 @@
+html
+  head
+    meta(charset="UTF-8")
+    title Bookings
+    link(rel="stylesheet", href="css/core.css")
+    script(src='/js/Functions/adminBooking.js' defer)
+    include includes/header
+  body.page-background
+    div.big-background-pic(style = "left: 5vw;")
+      div.big-title-whitebox
+        p.title-text Bookings
+      div.big-info-whitebox(style = "justify-content: flex-start;")
+        div.shaded-bar
+          div.column
+            p Start Date
+          div.column-divider-bar
+          div.column
+            p End Date
+          div.column-divider-bar
+          div.column
+            p Type
+          div.column-divider-bar
+          div.column
+            p Customer
+        table.booking-columns(id = "bookingList")
+          each booking in bookings
+            tr.cabin-booking(onclick="selectItem(this)")
+              - const startDateTimestamp = booking.startDate.seconds * 1000 + booking.startDate.nanoseconds / 1e6
+              - const startDateObject = new Date(startDateTimestamp)
+              td.columns #{startDateObject.toLocaleDateString('en-GB', { timeZone: 'UTC' })}
+              - const endDateTimestamp = booking.endDate.seconds * 1000 + booking.endDate.nanoseconds / 1e6
+              - const endDateObject = new Date(endDateTimestamp)
+              td.columns #{endDateObject.toLocaleDateString('en-GB', { timeZone: 'UTC' })}
+              td.columns #{booking.cabin.name}
+              td.columns #{booking.customer}
+          each snowmobilebooking in snowmobilebookings 
+            tr.snowmobile-booking(onclick="selectItem(this)")
+              - const startDateTimestamp = snowmobilebooking.startDate.seconds * 1000 + snowmobilebooking.startDate.nanoseconds / 1e6
+              - const startDateObject = new Date(startDateTimestamp)
+              td.columns #{startDateObject.toLocaleDateString('en-GB', { timeZone: 'UTC' })}
+              - const endDateTimestamp = snowmobilebooking.endDate.seconds * 1000 + snowmobilebooking.endDate.nanoseconds / 1e6
+              - const endDateObject = new Date(endDateTimestamp)
+              td.columns #{endDateObject.toLocaleDateString('en-GB', { timeZone: 'UTC' })}
+              td.columns #{snowmobilebooking.snowmobile.engine}
+              td.columns #{snowmobilebooking.customer}
+      if error
+        p.error= error
+      p#error.error(style="margin-left: 12vw;")      
+    div.big-background-pic
+      div.big-title-whitebox
+        p.title-text Description
+      div.big-info-whitebox(id = "descriptionField")
+    div.big-button-position-one
+      button.default(onclick="redirectBooking()") Edit 
+    div.big-button-position-two
+      button.default(onclick="deleteBooking()") Delete
+      
+   

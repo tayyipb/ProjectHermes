@@ -1,0 +1,18 @@
+html
+	head
+		meta(charset="UTF-8")
+		title Grundström Stugby
+		link(rel="stylesheet", href="css/core.css")
+	body.page-background
+	p.navn Grundström Stugby
+		div.login-background-pic
+			div.login-whitebox
+				form(action="/login", method="post", class = "login-form")
+					label.login Login
+					label.login-labels(for="username") Username:
+					input.login(type="text", id="username", name="username", required)
+					label.login-labels(for="password") Password:
+					input.login(type="password", id="password", name="password", required)
+					input.login-button(type="submit", value="Login")
+					if error
+						p.error= error

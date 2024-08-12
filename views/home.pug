@@ -1,0 +1,31 @@
+html
+  head
+    meta(charset="UTF-8")
+    title Home
+    link(rel="stylesheet", href="css/core.css")
+    script(src='/js/Functions/home.js' defer)
+    include includes/header
+  body.page-background
+    div.background-pic
+      div.title-whitebox
+        p.title-text Available Cabins
+      div.info-whitebox
+        div.selectable-list(id = "cabinList")
+          each cabin in cabins
+            div.selectable-item(onclick="selectItem(this)")
+              | #{cabin.name}
+        button.default(onclick="redirectBooking()") Create Booking
+    div.calender-background-pic
+      div.title-whitebox(style = "width: 18vw;")
+        p.title-text Date
+      label.calender(for="start-date") Start Date
+      input.calender(type="date", id = "startDate")
+      label.calender(for="start-date") End Date
+      input.calender(type="date", id = "endDate")
+    div.big-background-pic(style = "left: 60vw;")
+      div.big-title-whitebox
+        p.title-text Selected cabin
+      div.big-info-whitebox(id = "descriptionField")
+      if error
+        p.error= error
+      p#error.error

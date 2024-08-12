@@ -1,0 +1,31 @@
+html
+  head
+    meta(charset="UTF-8")
+    title cabins 
+    link(rel="stylesheet", href="css/core.css")
+    script(src='/js/Functions/adminCabins.js' defer)
+    script(src='/js/Functions/home.js' defer)
+    include includes/header
+body.page-background 
+    div.background-pic
+      div.title-whitebox
+        p.title-text Cabins
+      div.info-whitebox
+        div.selectable-list(id = "cabinList")
+          each cabin in cabins
+            div.selectable-item(onclick="selectItem(this)")
+              | #{cabin.name}
+    div.button-position-one 
+      form(action="/addcabin", method="post")
+        button.default Add 
+    div.button-position-two 
+        button.default(onclick="redirectCabin()") Edit 
+    div.button-position-three 
+      button.default(onclick="deleteCabin()") Delete 
+    div.big-background-pic(style="left: 45vw;")
+      div.big-title-whitebox
+        p.title-text Description
+      div.big-info-whitebox(id = "descriptionField")
+      if error
+        p.error= error
+      p#error.error

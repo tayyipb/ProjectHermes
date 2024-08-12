@@ -1,0 +1,32 @@
+html
+  head
+    meta(charset="UTF-8")
+    title Users
+    link(rel="stylesheet", href="css/core.css")
+    script(src='/js/Functions/admintools.js' defer)
+    include includes/header
+  body.page-background
+    div.background-pic
+      div.title-whitebox
+        p.title-text Users
+      div.info-whitebox(style = "justify-content: flex-start;")
+        div.shaded-bar
+          div.column
+            p Username
+        table.booking-columns(id = "bookingList")
+          each login in logins
+              tr.selectable-item(onclick="selectItem(this)")
+                td #{login.username}
+      button.default(onclick="deleteLogin()") Delete
+    div.background-pic(style = "left: 38vw; height: 18vw;" )
+      div.title-whitebox
+        p.title-text Create User
+      form(action="/addLogin", method="post")
+        p.text-label(for="username") Username:
+          input.textinput(type="text", id="username", name="username" required)
+        p.text-label(for="password") Password:
+          input.textinput(type="password", id="password", name="password" required)
+        button.default Create
+        if error
+          p.error= error
+        p#error.error

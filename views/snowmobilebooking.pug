@@ -1,0 +1,23 @@
+html
+  head
+    meta(charset="UTF-8")
+    title Snowmobile booking
+    link(rel="stylesheet", href="css/core.css")
+    include includes/header
+  body.page-background
+    form(action=`/createbookingsnowmobile/${engine}/${startDate}/${endDate}`, method="post")
+      div.background-pic
+        div.title-whitebox
+          p.title-text Booking info
+        p.text-label(style="margin-top: 3vw;") Name:
+          input.textinput(name="customer")
+        p.text-label Phone number:
+          input.textinput(name="phoneNumber")
+        p.text-label Email:
+          input.textinput(name="email")
+        button.default Create Booking
+      div.background-pic(style="left: 32vw;")
+        div.title-whitebox
+           p.title-text Note
+        div.bigtextinput(name="other")
+          textarea(name="other", cols="50", rows="10") 

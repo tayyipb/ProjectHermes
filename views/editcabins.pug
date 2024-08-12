@@ -1,0 +1,23 @@
+html
+  head
+    meta(charset="UTF-8")
+    title Editing Cabin
+    link(rel="stylesheet", href="css/core.css")
+    script(src='/js/Functions/admincabins.js' defer)
+    include includes/header
+  body.page-background
+    div.background-pic(style="height: 36vw;")
+      div.title-whitebox
+        p.title-text Editing cabin
+      p.text-label(style="margin-top: 3vw;") Name:
+        input.textinput(name="name", type="text", value=cabin.name, readonly)
+      p.text-label Size
+        input.textinput(name="size", type="text", value=cabin.size)
+      p.text-label Amount of rooms:
+        input.textinput(name="rooms", type="text", value=cabin.rooms)
+      p.text-label Location:
+        input.textinput(name="location", type="text", value=cabin.location)
+      p.text-label Price:
+        input.textinput(name="price", type="text", value=cabin.price)
+      button.default(onclick="editCabin()") Finish Edit
+        input(type="hidden", name="name", value=cabin.name)

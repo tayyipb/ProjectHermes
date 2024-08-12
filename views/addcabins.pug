@@ -1,0 +1,23 @@
+html
+  head
+    meta(charset="UTF-8")
+    title Adding cabin
+    link(rel="stylesheet", href="css/core.css")
+    script(src='/js/Functions/adminequipment.js' defer)
+    include includes/header
+  body.page-background
+    form(action="/addcabin", method="post")
+      div.background-pic(style = "height: 36vw;")
+        div.title-whitebox
+          p.title-text Adding cabin
+        p.text-label(style="margin-top: 2vw;") Name
+          input.textinput(name="name")
+        p.text-label Size:
+          input.textinput(name="size")
+        p.text-label Amount of rooms:
+          input.textinput(name="rooms")
+        p.text-label Location:
+          input.textinput(name="location")
+        p.text-label Price:
+          input.textinput(name="price")
+        button.default Add Cabin

@@ -1,0 +1,20 @@
+html
+  head
+    meta(charset="UTF-8")
+    title Editing a booking
+    link(rel="stylesheet", href="css/core.css")
+    script(src='/js/Functions/adminBooking.js' defer)
+    include includes/header
+  body.page-background
+   div.background-pic
+    div.title-whitebox
+      p.title-text Booking info
+    p.text-label Customer
+      input(name="customer", type="text", value=snowmobilebooking.customer, readonly)
+    p.text-label Phone number:
+      input(name="phoneNumber", type="text", value=snowmobilebooking.phoneNumber)
+    p.text-label Email:
+      input(name="email", type="text", value=snowmobilebooking.email)
+    p.text-label Other:
+      input(name="other", type="text", value=snowmobilebooking.other)
+    button.default(onclick="editSnowmobileBooking()") Edit Booking

@@ -1,0 +1,38 @@
+html
+  head
+    meta(charset="UTF-8")
+    title Snowmobiles
+    link(rel="stylesheet", href="css/core.css")
+    script(src='/js/Functions/adminequipment.js', defer)
+    include includes/header
+  body.page-background
+    div.background-pic
+      div.title-whitebox
+        p.title-text Snowmobiles
+      div.info-whitebox
+        div.selectable-list
+          each snowmobile in snowmobiles
+            div.selectable-item(onclick="selectItem(this)")
+              | #{snowmobile.engine}  
+    div.button-position-one
+      form(action="/addsnowmobile", method="post")
+        button.default Add
+    div.button-position-two
+      button.default(onclick="redirectSnowmobile()") Edit
+    div.button-position-three
+      button.default(onclick="deleteSnowmobile()") Delete
+    div.calender-background-pic(style ="height: 16vw;")
+      div.title-whitebox(style = "width: 18vw;")
+        p.title-text Date
+      label.calender(for="start-date") Start Date
+      input.calender(type="date", id = "startDate")
+      label.calender(for="start-date") End Date
+      input.calender(type="date", id = "endDate")
+      button.default(onclick="redirectSnowmobileBooking()") Create Booking
+    div.big-background-pic(style = "left: 60vw;")
+      div.big-title-whitebox
+        p.title-text Description
+      div.big-info-whitebox(id="descriptionField")
+      if error
+        p.error= error
+      p#error.error

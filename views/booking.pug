@@ -1,0 +1,29 @@
+html
+  head
+    meta(charset="UTF-8")
+    title Creating a booking
+    link(rel="stylesheet", href="css/core.css")
+    include includes/header
+  body.page-background
+    form(action=`/createbooking/${name}/${startDate}/${endDate}`, method="post")
+      div.background-pic
+        div.title-whitebox
+          p.title-text Booking info
+        p.text-label(style="margin-top: 3vw;") Name:
+          input.textinput(name="customer")
+        p.text-label Phone number:
+          input.textinput(name="phoneNumber")
+        p.text-label Email:
+          input.textinput(name="email")
+        p.checkbox-label Cleaning:
+          input.checkbox(name="cleaning", type="checkbox", id="Cleaning")
+        p.checkbox-label Bedlinens:
+          input.checkbox(name="bedLinens", type="checkbox", id="Bedlinens")
+        p.checkbox-label Towels:
+          input.checkbox(name="towel", type="checkbox", id="towels")
+        button.default Create Booking
+      div.background-pic(style="left: 32vw;")
+        div.title-whitebox
+          p.title-text Note
+        div.bigtextinput(name="other")
+          textarea(name="other", cols="50", rows="10") 

@@ -1,0 +1,26 @@
+html
+  head
+    meta(charset="UTF-8")
+    title Editing a booking
+    link(rel="stylesheet", href="css/core.css")
+    script(src='/js/Functions/adminBooking.js' defer)
+    include includes/header
+  body.page-background
+   div.background-pic
+    div.title-whitebox
+      p.title-text Booking info
+    p.text-label Customer
+      input(name="customer", type="text", value=booking.customer, readonly)
+    p.text-label Phone number:
+      input(name="phoneNumber", type="text", value=booking.phoneNumber)
+    p.text-label Email:
+      input(name="email", type="text", value=booking.email)
+    p.text-label Other:
+      input(name="other", type="text", value=booking.other)
+    p.checkbox-label Cleaning:
+      input.checkbox(name="cleaning", id="Cleaning", type="checkbox", checked=booking.cleaning)
+    p.checkbox-label Bedlinens:
+      input.checkbox(name="bedlinens",id="Bedlinens", type="checkbox", checked=booking.bedlinens)
+    p.checkbox-label Towels:
+      input.checkbox(name="towels",  id="towels", type="checkbox", checked=booking.towels)    
+    button.default(onclick="editBooking()") Edit Booking
